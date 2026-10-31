@@ -16,7 +16,7 @@ export default defineVersionedConfig({
   // archive/README.md, which document the repo, not doc pages.
   srcExclude: ['*.md', 'archive/README.md'],
 
-  title: 'Docs',
+  title: "M'City IQ",
 
   head: [
     [
@@ -31,8 +31,8 @@ export default defineVersionedConfig({
     ['meta', { name: 'theme-color', content: '#0071BC' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:locale', content: 'fr' }],
-    ['meta', { property: 'og:title', content: 'Docs | Documentation' }],
-    ['meta', { property: 'og:site_name', content: 'Docs' }],
+    ['meta', { property: 'og:title', content: "M'City IQ | Guide utilisateur" }],
+    ['meta', { property: 'og:site_name', content: "M'City IQ" }],
     ['meta', { property: 'og:url', content: siteUrl }],
   ],
 
@@ -41,7 +41,7 @@ export default defineVersionedConfig({
     logo: {
       light: '/images/icon.svg',
       dark: '/images/icon-reverse.svg',
-      alt: 'Docs',
+      alt: "M'City IQ",
       width: 48,
       height: 48,
     },

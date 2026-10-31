@@ -3,11 +3,11 @@ import type { DefaultTheme, LocaleInterface, NavType, SidebarItemType } from '@v
 export const en: LocaleInterface = {
   lang: 'en',
   label: 'English',
-  description: 'Documentation starter.',
+  description: "M'City IQ user guide: intranet, back-office, Auticway and technical integration.",
 
   themeConfig: {
     nav: nav(),
-    siteTitle: 'Documentation',
+    siteTitle: "M'City IQ",
 
     sidebar: {
       '/en/guide/': { base: '/en/guide/', items: sidebarGuide() },
@@ -23,8 +23,8 @@ function nav(): NavType {
   return {
     root: [
       {
-        text: 'Read the documentation',
-        link: '/en/guide/getting-started',
+        text: 'Read the guide',
+        link: '/en/guide/introduction',
         activeMatch: '/en/guide/',
       },
       {
@@ -32,13 +32,13 @@ function nav(): NavType {
         items: [
           {
             text: 'Release notes',
-            link: 'https://github.com/edpage-hq/guide-starter/releases',
+            link: 'https://github.com/edpage-hq/mcity-iq-guide/releases',
             target: '_blank',
             rel: 'noopener',
           },
           {
             text: 'Report a problem',
-            link: 'https://github.com/edpage-hq/guide-starter/issues',
+            link: 'https://github.com/edpage-hq/mcity-iq-guide/issues',
             target: '_blank',
             rel: 'noopener',
           },
@@ -52,14 +52,53 @@ function nav(): NavType {
 function sidebarGuide(): SidebarItemType[] {
   return [
     {
-      text: 'Introduction',
+      text: 'For everyone',
       collapsed: false,
-      items: [{ text: 'Getting started', link: 'getting-started' }],
+      items: [
+        { text: 'Overview', link: 'introduction' },
+        { text: 'Getting started', link: 'getting-started' },
+        { text: 'The desk', link: 'desk' },
+        { text: 'Notifications', link: 'notifications' },
+        { text: 'My account', link: 'account' },
+        { text: 'By position', link: 'positions' },
+      ],
     },
     {
-      text: 'Others',
+      text: 'Administration',
       collapsed: false,
-      items: [{ text: 'About', link: 'about' }],
+      items: [
+        { text: 'Accounts and access', link: 'administration/accounts' },
+        { text: 'Teams', link: 'administration/teams' },
+        { text: 'Offices and departments', link: 'administration/referentials' },
+        { text: 'Registry: products and zones', link: 'administration/registry' },
+        { text: 'Communications and resources', link: 'administration/communications' },
+        { text: 'Contact messages', link: 'administration/contact-messages' },
+        { text: 'Site pages', link: 'administration/site-pages' },
+        { text: 'Indicator supervision', link: 'administration/indicators' },
+        { text: 'Configuration', link: 'administration/settings' },
+        { text: 'Logs', link: 'administration/logs' },
+      ],
+    },
+    {
+      text: 'Auticway back-office',
+      collapsed: false,
+      items: [{ text: 'Using the back-office', link: 'auticway' }],
+    },
+    {
+      text: 'Technical integration',
+      collapsed: true,
+      items: [
+        { text: 'Overview', link: 'integration/overview' },
+        { text: 'SSO (OpenID Connect)', link: 'integration/sso' },
+        { text: 'API', link: 'integration/api' },
+        { text: 'Webhook', link: 'integration/webhook' },
+        { text: 'Indicators', link: 'integration/indicators' },
+      ],
+    },
+    {
+      text: 'Help',
+      collapsed: false,
+      items: [{ text: 'Frequently asked questions', link: 'faq' }],
     },
   ]
 }

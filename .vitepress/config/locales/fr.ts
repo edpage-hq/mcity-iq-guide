@@ -3,11 +3,12 @@ import type { DefaultTheme, LocaleInterface, NavType, SidebarItemType } from '@v
 export const fr: LocaleInterface = {
   lang: 'fr',
   label: 'Français',
-  description: 'Starter de documentation.',
+  description:
+    "Guide utilisateur de M'City IQ : intranet, back-office, Auticway et intégration technique.",
 
   themeConfig: {
     nav: nav(),
-    siteTitle: 'Documentation',
+    siteTitle: "M'City IQ",
 
     sidebar: {
       '/guide/': { base: '/guide/', items: sidebarGuide() },
@@ -37,7 +38,7 @@ export const fr: LocaleInterface = {
     langMenuLabel: 'Changer de langue',
     returnToTopLabel: 'Retour au début de la page',
     sidebarMenuLabel: 'Menu',
-    darkModeSwitchLabel: 'Passer an thème sombre',
+    darkModeSwitchLabel: 'Passer au thème sombre',
     lightModeSwitchTitle: 'Passer au thème clair',
     darkModeSwitchTitle: 'Apparence',
 
@@ -56,8 +57,8 @@ function nav(): NavType {
   return {
     root: [
       {
-        text: 'Lire la documentation',
-        link: '/guide/getting-started',
+        text: 'Lire le guide',
+        link: '/guide/introduction',
         activeMatch: '/guide/',
       },
       {
@@ -65,13 +66,13 @@ function nav(): NavType {
         items: [
           {
             text: 'Notes de version',
-            link: 'https://github.com/edpage-hq/guide-starter/releases',
+            link: 'https://github.com/edpage-hq/mcity-iq-guide/releases',
             target: '_blank',
             rel: 'noopener',
           },
           {
             text: 'Signaler un problème',
-            link: 'https://github.com/edpage-hq/guide-starter/issues',
+            link: 'https://github.com/edpage-hq/mcity-iq-guide/issues',
             target: '_blank',
             rel: 'noopener',
           },
@@ -85,14 +86,53 @@ function nav(): NavType {
 function sidebarGuide(): SidebarItemType[] {
   return [
     {
-      text: 'Introduction',
+      text: 'Pour tous',
       collapsed: false,
-      items: [{ text: 'Pour commencer', link: 'getting-started' }],
+      items: [
+        { text: 'Présentation', link: 'introduction' },
+        { text: 'Bien démarrer', link: 'getting-started' },
+        { text: 'Le bureau', link: 'desk' },
+        { text: 'Notifications', link: 'notifications' },
+        { text: 'Mon compte', link: 'account' },
+        { text: 'Selon votre poste', link: 'positions' },
+      ],
     },
     {
-      text: 'Autres',
+      text: 'Administration',
       collapsed: false,
-      items: [{ text: 'A propos', link: 'about' }],
+      items: [
+        { text: 'Comptes et accès', link: 'administration/accounts' },
+        { text: 'Équipes', link: 'administration/teams' },
+        { text: 'Bureaux et départements', link: 'administration/referentials' },
+        { text: 'Registre : produits et zones', link: 'administration/registry' },
+        { text: 'Communications et ressources', link: 'administration/communications' },
+        { text: 'Messages de contact', link: 'administration/contact-messages' },
+        { text: 'Pages du site', link: 'administration/site-pages' },
+        { text: 'Supervision des indicateurs', link: 'administration/indicators' },
+        { text: 'Configuration', link: 'administration/settings' },
+        { text: 'Journaux', link: 'administration/logs' },
+      ],
+    },
+    {
+      text: 'Back-office Auticway',
+      collapsed: false,
+      items: [{ text: 'Utiliser le back-office', link: 'auticway' }],
+    },
+    {
+      text: 'Intégration technique',
+      collapsed: true,
+      items: [
+        { text: "Vue d'ensemble", link: 'integration/overview' },
+        { text: 'SSO (OpenID Connect)', link: 'integration/sso' },
+        { text: 'API', link: 'integration/api' },
+        { text: 'Webhook', link: 'integration/webhook' },
+        { text: 'Indicateurs', link: 'integration/indicators' },
+      ],
+    },
+    {
+      text: 'Aide',
+      collapsed: false,
+      items: [{ text: 'Questions fréquentes', link: 'faq' }],
     },
   ]
 }
