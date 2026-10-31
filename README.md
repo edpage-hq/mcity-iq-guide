@@ -1,8 +1,10 @@
-# guide-starter
+# mcity-iq-guide
 
 ## Description
 
-Starter repo for edpage-hq documentation sites. Provides a [VitePress](https://vitepress.dev) site with French/English content, local search, multi-version docs, a custom theme and CI already wired up — clone it to start a new docs project instead of scaffolding from scratch.
+User guide for M'City IQ, in French and English: everyday use for all staff, each position, administration, the Auticway back-office, and the technical integration contract for product teams (SSO, API, webhook, indicators). Built with [VitePress](https://vitepress.dev) from the edpage-hq `guide-starter`.
+
+Published at <https://edpage-hq.github.io/mcity-iq-guide/>.
 
 ## Tech stack
 
@@ -54,12 +56,19 @@ pnpm docs:build   # fails on broken links/markdown
 
 ## Environments
 
-| Env        | URL                                                         | Deployment |
-| ---------- | ----------------------------------------------------------- | ---------- |
-| Staging    | _fill in once this project's staging environment exists_    |            |
-| Production | _fill in once this project's production environment exists_ |            |
+| Env        | URL                                           | Deployment                                       |
+| ---------- | --------------------------------------------- | ------------------------------------------------ |
+| Production | <https://edpage-hq.github.io/mcity-iq-guide/> | GitHub Pages, from the `gh-pages` branch, manual |
 
-`pnpm docs:deploy` builds the site and publishes `.vitepress/build` to the `gh-pages` branch via [gh-pages](https://github.com/tschaub/gh-pages). Adjust `VITE_BASE` to match how the site is actually served (root domain vs. GitHub Pages project path) before deploying.
+There is no staging environment: preview changes locally with `pnpm docs:dev`, or `pnpm docs:build && pnpm docs:preview`.
+
+To publish, from an up-to-date `master` after the PR is merged:
+
+```bash
+VITE_BASE=/mcity-iq-guide/ VITE_SITE_URL=https://edpage-hq.github.io/mcity-iq-guide pnpm docs:deploy
+```
+
+`pnpm docs:deploy` builds the site and publishes `.vitepress/build` to the `gh-pages` branch via [gh-pages](https://github.com/tschaub/gh-pages); GitHub Pages then rebuilds within a minute. The two variables are required: the default `VITE_BASE` (`/docs/`) would break every asset path on GitHub Pages. The `gh-pages` branch holds only the built site and a `.nojekyll` file; never merge it into `master`.
 
 ## Contacts
 
