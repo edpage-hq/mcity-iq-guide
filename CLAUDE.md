@@ -63,7 +63,7 @@ pnpm lint:md        # markdownlint only
 pnpm format         # Prettier --write
 ```
 
-There is no unit test suite: `pnpm docs:build` is the correctness check (broken internal links/markdown fail the build). CI (`.github/workflows/ci.yml`) calls the org's reusable `node-lint-test.yml` (lint) and `docs-build.yml` (build) workflows from `edpage-hq/.github`.
+There is no unit test suite: `pnpm docs:build` is the correctness check (broken internal links/markdown fail the build). CI (`.github/workflows/ci.yml`) calls the org's reusable `node-lint-test.yml` (lint) and `guide-build.yml` (build) workflows from `edpage-hq/.github`.
 
 `node-lint-test.yml` also runs a generic `pnpm build --if-present` step. pnpm appends `--if-present` onto whatever "build" resolves to even when the script exists, and `vitepress build --if-present` misreads that as its root-directory argument (silently building an empty scaffold into a literal `--if-present/` folder instead of failing loudly). `"build"` in `package.json` therefore points at `scripts/ci-build.mjs`, a wrapper that calls `vitepress build` with a fixed argument list — it absorbs whatever pnpm appends without forwarding it. Don't inline `vitepress build` directly as the `"build"` script.
 
